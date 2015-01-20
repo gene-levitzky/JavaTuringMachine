@@ -8,20 +8,14 @@ package gvl.javaturingmachine;
  */
 public class Symbol {
 	
-	private String name;
-	private char charRepresentation;
+	private String stringRepresentation;
 	
-	public Symbol (String name, char charRepresentation) {
-		this.name = name;
-		this.charRepresentation = charRepresentation;
+	public Symbol (String stringRepresentation) {
+		this.stringRepresentation = stringRepresentation;
 	}
 	
-	public String getName() {
-		return name;
-	}
-	
-	public char getCharRepresentation() {
-		return charRepresentation;
+	public String getStringRepresentation() {
+		return stringRepresentation;
 	}
 
 }
