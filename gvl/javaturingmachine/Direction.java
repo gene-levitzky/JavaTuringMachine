@@ -6,6 +6,6 @@ package gvl.javaturingmachine;
  * @author Gene
  *
  */
-public enum Directions {
+public enum Direction {
 	LEFT, RIGHT, STAY;
 }
