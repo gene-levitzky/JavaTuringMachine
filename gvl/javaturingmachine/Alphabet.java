@@ -13,17 +13,23 @@ import java.util.HashSet;
  */
 public class Alphabet {
 	
-	private HashSet<String> sigma;
+	private HashSet<Symbol> sigma;
 	
-	public Alphabet(String[] alphabetArray) {
-		sigma = new HashSet<String>(alphabetArray.length);
-		for (String c : alphabetArray) {
+	public Alphabet(Symbol[] symbolArray) {
+		sigma = new HashSet<Symbol>(symbolArray.length);
+		for (Symbol c : symbolArray) {
 			sigma.add(c);
 		}
+		sigma.add(new Symbol(" "));
 	}
 	
-	public boolean isValid(String c) {
+	public boolean isValid(Symbol c) {
 		return sigma.contains(c);
+	}
+	
+	public Symbol[] getSymbolsArray() {
+		Symbol[] out = new Symbol[sigma.size()];
+		return sigma.toArray(out);
 	}
 
 }
