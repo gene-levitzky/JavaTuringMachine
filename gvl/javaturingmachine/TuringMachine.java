@@ -11,11 +11,6 @@ public class TuringMachine {
 	private State currentState = null;
 	private Tape tape = null;
 	
-	/*
-	 * The location in the Tape.
-	 */
-	private int head = 0;
-	
 	/**
 	 * Constructor for TuringMachine.
 	 * @param startState The state the TuringMachine starts in.
@@ -30,9 +25,9 @@ public class TuringMachine {
 	 * Performs a single step in the TuringMachine's computation.
 	 */
 	public void next() {
-		Transition t = currentState.getTransition(tape.read(head));
+		Transition t = currentState.getTransition(tape.read());
 		currentState = t.getNewState();
-		tape.write(head, t.getNewSymbol());
+		tape.write(t.getNewSymbol());
 		move(t.getNewDirection());
 	}
 	
@@ -52,22 +47,8 @@ public class TuringMachine {
 		return currentState;
 	}
 	
-	/**
-	 * Moves the head of the TuringMachine in the specified direction.
-	 * @param direction The direction to move in.
-	 */
 	private void move(Direction direction) {
-		switch(direction) {
-			case LEFT:
-				head--;
-				break;
-			case RIGHT:
-				head++;
-				break;
-			case STAY:
-			default:
-				break;
-		}
+		tape.move(direction);
 	}
 
 }
