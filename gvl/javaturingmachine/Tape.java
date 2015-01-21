@@ -10,11 +10,16 @@ public class Tape {
 		this.tape = tape;
 	}
 	
-	public Symbol get(int index) {
+	public Symbol read(int index) {
 		if (index >= tape.size()) {
 			tape.add(Symbol.BLANK);
 		}
 		
 		return tape.get(index);
+	}
+	
+	public void write(int index, Symbol s) {
+		assert index < tape.size();
+		tape.add(index, s);
 	}
 }
