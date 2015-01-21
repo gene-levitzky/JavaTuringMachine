@@ -22,4 +22,12 @@ public class Tape {
 		assert index < tape.size();
 		tape.add(index, s);
 	}
+	
+	public String toString() {
+		StringBuilder out = new StringBuilder();
+		for (Symbol s : tape) {
+			out.append(s.getStringRepresentation() + ", ");
+		}
+		return out.toString();
+	}
 }
