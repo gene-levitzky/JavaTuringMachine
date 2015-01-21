@@ -12,6 +12,11 @@ public class State {
 	
 	private HashMap<Symbol, Transition> transitions;
 	
+	/*
+	 * Special halt state.
+	 */
+	public static final State HALT = new State();
+	
 	public State() {
 		transitions = new HashMap<Symbol, Transition>(0);
 	}
