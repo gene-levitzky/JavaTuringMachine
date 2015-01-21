@@ -34,7 +34,12 @@ public class ExampleTuringMachine {
 		symbolList.add(one);
 		symbolList.add(zero);
 		
-		TuringMachine MoveRight = new TuringMachine(start, new Tape(symbolList));
+		TuringMachine moveRight = new TuringMachine(start, new Tape(symbolList));
+		
+		while (moveRight.getCurrentState() != State.HALT) {
+			moveRight.next();
+			System.out.println(moveRight.getTape().toString());
+		}
 	}
 
 }
