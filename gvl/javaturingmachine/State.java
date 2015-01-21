@@ -16,8 +16,8 @@ public class State {
 		transitions = new HashMap<Symbol, Transition>(0);
 	}
 	
-	public void addTransition(Symbol s, Transition t) {
-		transitions.put(s, t);
+	public void addTransition(Symbol current, Symbol nextSymbol, State nextState, Direction direction) {
+		transitions.put(current, new Transition(nextSymbol, nextState, direction));
 	}
 
 	public Transition getTransition(Symbol s) {
