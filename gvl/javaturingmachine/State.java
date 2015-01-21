@@ -11,13 +11,15 @@ import java.util.HashMap;
 public class State {
 	
 	private HashMap<Symbol, Transition> transitions;
+	private String name;
 	
 	/*
 	 * Special halt state.
 	 */
-	public static final State HALT = new State();
+	public static final State HALT = new State("HALT");
 	
-	public State() {
+	public State(String name) {
+		this.name = name;
 		transitions = new HashMap<Symbol, Transition>(0);
 	}
 	
@@ -27,5 +29,13 @@ public class State {
 
 	public Transition getTransition(Symbol s) {
 		return transitions.get(s);
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public String toString() {
+		return this.getName();
 	}
 }
